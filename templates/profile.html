@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Welcome, {{ user.name }}!
+</h1>
+<h3>Here's everything we know about you:</h3>
+<table style="padding-left: 30px;">
+  <style type="text/css">
+    td {
+      padding: 0 15px;
+    }
+  </style>
+  <tr>
+    <td>Name: </td><td>{{ user.name }}</td>
+  </tr>
+  <tr>
+    <td>Username: </td><td>{{ user.username }}</td>
+  </tr>
+  <tr>
+    <td>Church: </td><td>{{ user.church }}</td>
+  </tr>
+  <tr>
+    <td>Team: </td><td>{{ user.team }}</td>
+  </tr>
+  <tr>
+    <td>Age: </td><td>{{ user.age }}</td>
+  </tr>
+  <tr>
+    <td>Roles: </td><td>{{ ", ".join(user.roles) }}</td></td>
+  </tr>
+</table>
+{% endblock %}

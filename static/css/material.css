@@ -1,0 +1,23 @@
+h1, h2, h3 {
+    text-align: center;
+}
+
+td {
+    text-align: left;
+}
+
+dt {
+    visibility: hidden;
+    display: inline-block;
+    font-size: 0;
+}
+
+dt::first-letter {
+    visibility: visible;
+    font-size: 20pt;
+}
+
+dt:hover {
+    visibility: visible;
+    font-size: 20pt;
+}

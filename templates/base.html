@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {#    <meta charset="UTF-8" name="theme-color" content="#aaa">#}
+    <title>{% block title %} {% endblock %} - QuizBox</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+</head>
+<body>
+<nav>
+    <ul>
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #111;
+            }
+        </style>
+        <div>
+            <li><a href="{{ url_for('main.index') }}">Home</a></li>
+            <li><a href="{{ url_for('main.material') }}">Material</a></li>
+        </div>
+        <div style="float: right">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+
+        </div>
+    </ul>
+</nav>
+
+<main>
+    {% block content %} {% endblock %}
+</main>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="/signup" method="post">
+  <label for="first-dropdown">Church:</label><br>
+  <select id="first-dropdown" onchange="updateSecondDropdown()">
+    {% for option in churches %}
+      <option value="{{ option }}">{{ option }}</option>
+    {% endfor %}
+  </select><br><br>
+  <label for="second-dropdown">Team:</label><br>
+  <select id="second-dropdown">
+  </select><br><br>
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name"><br><br>
+  <label for="dob">Date of Birth:</label><br>
+  <input type="date" id="dob" name="dob"><br><br>
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password"><br><br>
+  <label for="verify-password">Verify Password:</label><br>
+  <input type="password" id="verify-password" name="verify-password"><br><br>
+  <input type="submit" value="Submit" id="submit-button" disabled>
+  <div id="error-message" style="color: red;"></div>
+</form>
+
+<script>
+  // Get the password, verify password, and username inputs
+  const passwordInput = document.getElementById("password");
+  const verifyPasswordInput = document.getElementById("verify-password");
+  const usernameInput = document.getElementById("username");
+  const submitButton = document.getElementById("submit-button");
+  const errorMessage = document.getElementById("error-message");
+
+  // Add a keyup event listener to the password and verify password inputs
+  passwordInput.addEventListener("keyup", checkInputs);
+  verifyPasswordInput.addEventListener("keyup", checkInputs);
+  usernameInput.addEventListener("keyup", checkInputs);
+
+  // Add a focusout event listener to the verify password input
+  verifyPasswordInput.addEventListener("focusout", checkInputs);
+
+function checkInputs() {
+  // Get the values of the password, verify password, and username inputs
+  const password = passwordInput.value;
+  const verifyPassword = verifyPasswordInput.value;
+  const username = usernameInput.value;
+
+  // Check if the passwords match and the username is not empty
+  if (password !== verifyPassword || !username) {
+    // Display an error message if the passwords do not match or the username is empty
+    errorMessage.textContent = "The passwords do not match or the username is empty";
+    submitButton.disabled = true;
+  } else {
+    // Clear the error message and enable the submit button if the passwords match and the username is not empty
+    errorMessage.textContent = "";
+    submitButton.disabled = false;
+  }
+}
+</script>
+
+
+
+<script>
+  function updateSecondDropdown() {
+    // Get the selected value of the first dropdown menu
+    var selectedValue = document.getElementById("first-dropdown").value;
+    console.log(selectedValue);
+
+    // Clear the options in the second dropdown menu
+    document.getElementById("second-dropdown").innerHTML = "";
+
+    // Make an AJAX request to the server to get the options for the second dropdown menu
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == XMLHttpRequest.DONE) {
+        // Parse the response from the server
+        var options = JSON.parse(xhr.responseText);
+        console.log(options);
+
+        // Add the options to the second dropdown menu
+        for (let i = 0; i < options.length; i++) {
+          var option = document.createElement("option");
+          option.value = options[i];
+          option.text = options[i];
+          document.getElementById("second-dropdown").add(option);
+          console.log(options[i]);
+        }
+      }
+    }
+    xhr.open("GET", "/teams_in_church?church=" + selectedValue, true);
+    xhr.send();
+  }
+  updateSecondDropdown();
+</script>
+
+{% endblock %}
