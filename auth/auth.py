@@ -18,7 +18,7 @@ DATA_churches = {
     'Tabernacle': ['Accord', 'Sons'],
     'Victory': ['Victory'],
 }
-DATA_churches: dict[str, list[str]]
+# DATA_churches: dict[str, list[str]]
 
 for church in DATA_churches:
     DATA_churches[church].insert(0, 'non-quizzer')

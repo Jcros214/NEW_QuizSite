@@ -10,14 +10,17 @@ from auth.models import db as db
 
 
 def create_app():
-    app = Flask(__name__) # NOQA
+    app = Flask(__name__)  # NOQA
     app.register_blueprint(main_blueprint)
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(quiz_blueprint)
 
     # create db so it can be imported by other modules
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../NEW_QuizSite/auth/db.sqlite'
+
+    sqlitedb_uri = 'sqlite:///../NEW_QuizSite/auth/db.sqlite'
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = sqlitedb_uri
 
     db.init_app(app)
 

@@ -1,5 +1,10 @@
 # QuizSite
 
+## Current Problems
+- SQLite db location is incorrect
+- Using Docker; not ideal, but got past DigitalOcean's requirements to find a component. Need to just launch gunicorn.
+
+
 ### Site Map
 - home
 - login
@@ -10,12 +15,3 @@
   - master_quiz
 - Admin
   - TBD
-
-
-
-
-New_QuizSite
-|_ auth
-  |_ __init__.py
-  |_ models.py
-|_ __init__.py
