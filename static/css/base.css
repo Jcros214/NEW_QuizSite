@@ -1,0 +1,156 @@
+.nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.nav-li {
+    float: left;
+}
+
+.nav-a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-a:hover {
+    background-color: #111;
+}
+
+
+
+
+
+
+body {
+    height: 100%;
+    background: #222;
+    color: #AAA;
+}
+
+h1 {
+    /*font-family: 'Open Sans', sans-serif;*/
+    /*font-weight: 300;*/
+    text-align: center;
+}
+
+
+
+
+
+
+
+/** {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  box-sizing: border-box;*/
+/*  color: #fff;*/
+/*}*/
+
+/*html,*/
+/*body {*/
+/*  height: 100%;*/
+/*}*/
+
+/*body {*/
+/*  color: #333;*/
+/*  font-family: sans-serif;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
+
+/*main {*/
+/*  flex: 1 0 auto;*/
+/*  background-color: rgb(30, 30, 30);*/
+
+/*}*/
+
+/*body {*/
+/*  background-color: rgb(255, 255, 255);*/
+/*  color: rgb(0, 0, 0);*/
+/*  font-size: 25px;*/
+/*}*/
+
+/*button {*/
+/*  width: 50px;*/
+/*  margin: 30px;*/
+/*  color:#000;*/
+/*}*/
+
+/*h1 {*/
+/*  padding-top: 70px;*/
+/*  padding-bottom: 20px;*/
+/*  text-align: center;*/
+/*  margin: auto;*/
+/*}*/
+
+/*input {*/
+/*  color: #000;*/
+/*}*/
+
+
+/*.class-for-index {*/
+/*  color: red;*/
+/*}*/
+
+/*.class-for-page {*/
+/*  color: blue;*/
+/*}*/
+
+
+
+/*.VerseNumRow {*/
+/*vertical-align: top;*/
+/*}*/
+
+/*.verseNum {*/
+/*  font-size: 25px;*/
+/*  text-align: center;*/
+/*  line-height: 75px;*/
+/*  margin: auto;*/
+/*  padding: auto;*/
+/*  width: 25px;*/
+/*  height: 25px;*/
+/*}*/
+
+
+
+/*.qV {*/
+/*  color: #fff;*/
+/*  background: #000;*/
+/*  !* border-radius: 50%; *!*/
+
+/*}*/
+
+/*.nV {*/
+/*color: black;*/
+/*}*/
+
+
+
+/*.dark-mode {*/
+/*  background-color: black;*/
+/*  color: white;*/
+/*}*/
+/*.light-mode {*/
+/*  background-color: white;*/
+/*  color: black;*/
+/*}*/
+
+/*.active {*/
+/*  background-color: green;*/
+/*  color: #fff;*/
+/*}*/
+
+/*.switch {*/
+/*  height: 80px;*/
+/*  width: 40px;*/
+/*  background-color: #bbb;*/
+/*  display: inline-block;*/
+/*  margin: 30px;*/
+/*}*/

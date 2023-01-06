@@ -2,11 +2,14 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
+import os
+# import time
+
 from main.main import main as main_blueprint
 from auth.auth import auth as auth_blueprint
 from quiz.quiz import quiz as quiz_blueprint
 
-from auth.models import db as db
+from auth.models import db, User
 
 
 def create_app():
@@ -18,11 +21,15 @@ def create_app():
     # create db so it can be imported by other modules
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
 
-    sqlitedb_uri = 'sqlite:///../NEW_QuizSite/auth/db.sqlite'
-
-    app.config['SQLALCHEMY_DATABASE_URI'] = sqlitedb_uri
+    # check if running on macos or linux
+    if os.name == 'posix':
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../NEW_QuizSite/auth/db.sqlite'
+    else:
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////app/auth/db.sqlite'
 
     db.init_app(app)
+
+    # time.sleep(20)
 
     with app.app_context():
         db.create_all()
@@ -42,4 +49,6 @@ def create_app():
 app = create_app()
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get('PORT', 5001))
+    print('port is', port) if port != 5001 else None
+    app.run(debug=True, host='0.0.0.0', port=port)
