@@ -1,9 +1,7 @@
 # QuizSite
 
 ## Current Problems
-- SQLite db location is incorrect
-- Using Docker; not ideal, but got past DigitalOcean's requirements to find a component. Need to just launch gunicorn.
-
+- Using bottle (flask builtin server) instead of gunicorn or similar.
 
 ### Site Map
 - home

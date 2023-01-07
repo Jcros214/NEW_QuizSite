@@ -12,3 +12,7 @@ def index():
 @main.route('/material')
 def material():
     return render_template('material.html')
+
+@main.route('/practice')
+def practice():
+    return render_template('practice.html')

@@ -8,6 +8,7 @@ import os
 from main.main import main as main_blueprint
 from auth.auth import auth as auth_blueprint
 from quiz.quiz import quiz as quiz_blueprint
+from api.api import api as api_blueprint
 
 from auth.models import db, User
 
@@ -17,6 +18,7 @@ def create_app():
     app.register_blueprint(main_blueprint)
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(quiz_blueprint)
+    app.register_blueprint(api_blueprint)
 
     # create db so it can be imported by other modules
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'

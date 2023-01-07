@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} Practice {% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/practice.css') }}">
+    <script src="{{ url_for('static', filename='js/practice.js') }}"></script>
+
+    <h1>Practice</h1>
+
+
+    <form>
+        <div class="grid">
+            {% for chapter in ['1C 1', '1C 2', '1C 3', '1C 4', '1C 5', '1C 6', '1C 7', '1C 8', '1C 9', '1C 10', '1C 11', '1C 12', '1C 13', '1C 14', '1C 15', '1C 16', '2C 1', '2C 2', '2C 3', '2C 4', '2C 5', '2C 6', '2C 7', '2C 8', '2C 9', '2C 10', '2C 11', '2C 12', '2C 13'] %}
+                <label>
+                    <input class="grid-item" type="checkbox" name="chapter" value="{{ chapter }}"/>{{ chapter }}
+                </label>
+            {% endfor %}
+        </div>
+    </form>
+
+    <br><br><br>
+
+
+    <button id="next-button">Next</button>
+{#    <div id="flashcard">#}
+{#        <div id="flashcard-inner">#}
+            <div id="front">Front of flashcard</div>
+            <div id="back">Back of flashcard</div>
+{#        </div>#}
+
+{#    </div>#}
+
+
+{% endblock %}
